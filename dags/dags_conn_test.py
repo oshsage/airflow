@@ -1,4 +1,4 @@
-from airflow import dag_processing
+from airflow import DAG
 import pendulum
 import datetime
 from airflow.operators.empty import EmptyOperator
