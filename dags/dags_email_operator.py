@@ -16,3 +16,5 @@ with DAG(
         subject='Airflow 성공메일',      # 메일 제목
         html_content='Airflow 작업이 완료되었습니다.' # 메일 내용
     )
+
+    send_email_task
