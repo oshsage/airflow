@@ -1,10 +1,3 @@
-from airflow import DAG
-# python의 DateTime 이라는 타입
-import datetime
-# DataTime 타입을 좀 더 쉽게 쓸 수 있도록 제공해주는 라이브러리
-import pendulum
-from airflow.operators.python import PythonOperator
-
 '''
 파이썬 인터프리터 가상환경을 만들었을 때, 기본적으로 프로젝트의 최상위 홈인 AIRFLOW 디렉토리를 PATH로 잡게 됨.
 그래서 plugins부터 경로를 입력해줘야 함. 이렇게 하면 우리 개발 환경에서는 에러가 안 나는데 이 상태를 git에 올리고
@@ -18,6 +11,10 @@ PYTHONPATH=${WORKSPACE_FOLDER}/plugins
 이렇게 하면 plugins 폴더까지 PATH로 잡힐 수 있다.
 `.env`까지 git에 올릴 필요는 없기 때문에 gitignore에 추가해주자.
 '''
+from airflow import DAG
+import datetime
+import pendulum
+from airflow.operators.python import PythonOperator
 from common.common_func import get_sftp
 
 # 이 DAG는 어떤 DAG인지 설명하는 부분
