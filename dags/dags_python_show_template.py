@@ -19,4 +19,4 @@ with DAG(
         from pprint import pprint
         pprint(kwargs)
 
-    show_templates
+    show_templates()
