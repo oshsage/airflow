@@ -18,7 +18,7 @@ with DAG(
     bash_command=f"echo variable:{var_value}"
     )
 
-    # 2. Jinja Template를 이용하여 Operator 내부에서 가져오기
+    # 2. Jinja Template를 이용하여 Operator 내부에서 가져오기(권장)
     bash_var_2 = BashOperator(
     task_id="bash_var_2",
     bash_command="echo variable:{{var.value.sample_key}}"
