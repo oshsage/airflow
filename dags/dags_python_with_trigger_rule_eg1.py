@@ -31,4 +31,6 @@ with DAG(
 
     [bash_upstream_1, python_upstream_1(), python_upstream_2()] >> python_downstream_1()
 
-    # 예상 결과 : python_upstream_1에서 실패가 처리되고, trigger_rule을 만족하지 못해 python_downstream_1도 실행되지 않는다.
+'''
+    예상 결과 : python_upstream_1에서 실패가 처리되었으나, trigger_rule은 all_done이기에 python_downstream_1은 실행된다.
+'''
