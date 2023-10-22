@@ -45,7 +45,7 @@ with DAG(
     random_branch() >> [task_a, task_b(), task_c()] >> task_d()
 '''
     예상 결과: A, B, C 중 하나만 선택되므로 3개의 task 중 하나만 실행 나머지는 skipped 처리된다.
-    이는 trigger_rule을 만족하지 못한다.
-    따라서 task_d는 실행되지 않을 것이다.
+    이는 skipped되는 task가 없어야하는 none_skipped trigger_rule을 만족하지 못한다.
+    따라서 task_d도 skipped 처리될 것이다.
 
 '''
