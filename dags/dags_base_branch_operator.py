@@ -10,7 +10,7 @@ with DAG(
     catchup=False
 ) as dag:
     class CustomBranchOperator(BaseBranchOperator):
-        def choose_branch(self, context):
+        def choose_branch(self, context):    # context : Operator 내에서 제공해주는 정보. 직접 출력하여 확인해보자!
             import random
             print(context)
             
