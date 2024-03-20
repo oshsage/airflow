@@ -12,11 +12,11 @@ with DAG(
     schedule=None
 ) as dag:
     
-    '''서울 일자리 센터 인재정보 직종별, 지역별 목록'''
+    '''서울시 공공자전거 이용정보(월별)'''
     tb_cycle_station_info = SimpleHttpOperator(
         task_id='tb_cycle_station_info',
         http_conn_id='openapi.seoul.go.kr',
-        endpoint='{{var.value.apikey_openapi_seoul_go_kr}}/json/tbCycleRentUseDayInfo/1/10/',
+        endpoint='{{var.value.apikey_openapi_seoul_go_kr}}/json/tbCycleRentUseMonthInfo/1/10/202208',
         method='GET',
         headers={'Content-Type':'application/json',
                  'charset': 'utf-8',
