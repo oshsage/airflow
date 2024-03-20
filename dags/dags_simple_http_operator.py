@@ -3,6 +3,7 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.providers.http.operators.http import SimpleHttpOperator
 from airflow.decorators import task
+from airflow.models import Variable
 import pendulum
 
 with DAG(
@@ -23,7 +24,8 @@ with DAG(
                  'Accept': '*/*'
                 }
     )
-
+    print('{{var.value.apikey_openapi_seoul_go_kr}}')
+    
     @task(task_id='python_2')
     def python_2(**kwargs):
         ti = kwargs['ti']
