@@ -55,7 +55,7 @@ class SeoulApiToCsvOperator(BaseOperator):
         response = requests.get(request_url, headers)   # dictionary 구조를 띄지만 현재는 string 형태
         contents = json.loads(response.text)    # string 값을 dictionary 형태로 반환
 
-        key_nm = list(contents.key())[0]    # 'stationInfo'
+        key_nm = list(contents.keys())[0]    # 'stationInfo'
         row_data = contents.get(key_nm).get('row')  # 'stationInfo > row > 리스트값
         row_df = pd.DataFrame(row_data)
 
