@@ -18,7 +18,7 @@ class SeoulApiToCsvOperator(BaseOperator):
 
         connection = BaseHook.get_connection(self.http_conn_id)
         self.base_url = f'http://{connection.host}:{connection.port}/{self.endpoint}' # host:8080
-        
+        print(self.base_url)
         total_row_df = pd.DataFrame()
         start_row = 1
         end_row = 1000
@@ -43,7 +43,7 @@ class SeoulApiToCsvOperator(BaseOperator):
         import json
 
         headers = {
-            'Content_Type': 'application/json',
+            'Content-Type': 'application/json',
             'charset': 'utf-8',
             'Accept': '*/*'
         }
@@ -51,6 +51,7 @@ class SeoulApiToCsvOperator(BaseOperator):
         request_url = f'{base_url}/{start_row}/{end_row}/'
         if self.base_dt is not None:
             request_url = f'{base_url}/{start_row}/{end_row}/{self.base_dt}'
+        print(request_url)
         response = requests.get(request_url, headers)   # dictionary 구조를 띄지만 현재는 string 형태
         contents = json.loads(response.text)    # string 값을 dictionary 형태로 반환
 
