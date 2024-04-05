@@ -15,7 +15,7 @@ class SeoulApiToCsvOperator(BaseOperator):
 
     def execute(self, context):
         import os
-
+q
         connection = BaseHook.get_connection(self.http_conn_id)
         self.base_url = f'http://{connection.host}:{connection.port}/{self.endpoint}' # host:8080
         print(self.base_url)
@@ -34,7 +34,7 @@ class SeoulApiToCsvOperator(BaseOperator):
                 start_row = end_row + 1
                 end_row += 1000
 
-        if not os.path.exist(self.path):
+        if not os.path.exists(self.path):
             os.system(f'mkdir -p {self.path}')
         total_row_df.to_csv(self.path + '/' + self.file_name, encoding='utf-8', index=False)
 
