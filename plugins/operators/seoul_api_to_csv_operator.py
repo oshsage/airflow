@@ -15,7 +15,7 @@ class SeoulApiToCsvOperator(BaseOperator):
 
     def execute(self, context):
         import os
-q
+
         connection = BaseHook.get_connection(self.http_conn_id)
         self.base_url = f'http://{connection.host}:{connection.port}/{self.endpoint}' # host:8080
         print(self.base_url)
